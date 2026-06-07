@@ -1,0 +1,10 @@
+import streamlit as st
+
+st.set_page_config(page_title="LLM-Python Enhanced UI")
+st.title("🚀 LLM-Python 增强诊断面板")
+
+st.sidebar.info("本模块为原项目的可视化扩展，支持追踪智能体思考链路。")
+user_input = st.text_input("向增强版智能体提问:")
+if user_input:
+    st.write("正在调用增强版 RAG 管道...")
+    st.status("智能体正在思考 (Thought Chain)...")
