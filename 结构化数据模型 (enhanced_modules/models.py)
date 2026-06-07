@@ -1,0 +1,10 @@
+from pydantic import BaseModel, Field
+from typing import List, Literal
+
+class AgentResponse(BaseModel):
+    """确保智能体输出符合工业标准的强类型模型"""
+    task_id: str = Field(..., description="Unique task ID")
+    status: Literal["success", "error", "pending"]
+    thought_process: str = Field(..., description="The reasoning steps of the LLM")
+    answer: str
+    confidence: float = Field(ge=0, le=1)
